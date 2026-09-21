@@ -1,0 +1,101 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="indexpara">
+<div class="filter-bar">
+
+    <form action="/listings" method="get">
+    <div class="search-box">
+        <i class="bi bi-search"></i>
+        <input id="search-input" name="search" type="text" placeholder="Search destinations">
+    </div>
+    </form>
+
+<div class="filters">
+
+    <a href="/listings">
+        <div class="filter">
+             <i class="bi bi-fire"></i>
+            <p>All</p>
+        </div>
+    </a>
+
+    <a href="/listings?category=Beach">
+        <div class="filter">
+            <i class="bi bi-sun"></i>
+            <p>Beach</p>
+        </div>
+    </a>
+
+    <a href="/listings?category=Mountain">
+        <div class="filter">
+            <i class="bi bi-triangle"></i>
+            <p>Mountain</p>
+        </div>
+    </a>
+
+    <a href="/listings?category=City">
+        <div class="filter">
+             <i class="bi bi-buildings"></i>
+            <p>City</p>
+        </div>
+    </a>
+
+    <a href="/listings?category=Luxury">
+        <div class="filter">
+             <i class="bi bi-gem"></i>
+            <p>Luxury</p>
+        </div>
+    </a>
+
+    <a href="/listings?category=Countryside">
+        <div class="filter">
+            <i class="bi bi-tree"></i>
+            <p>Countryside</p>
+        </div>
+    </a>
+
+</div>
+
+
+ <div class="tax-switch">
+        <span>Display total after taxes</span>
+
+        <label class="switch">
+            <input type="checkbox" id="tax-toggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+</div>
+
+
+
+<div class="card-container">
+  <% for(let listing of alllistings){ %>
+
+    <div class="card">
+      <img src="<%= listing.image.url %>" alt="listing">
+
+      <div class="card-body">
+        <h3 class="card-title"><b><%= listing.title %></b></h3>
+        <!-- <p class="card-desc"><%= listing.description %></p> -->
+        <p class="card-price" data-price="<%= listing.price %>">₹ <%= listing.price.toLocaleString("en-IN") %></p>
+        <!-- <p class="card-location"><%= listing.location %></p> -->
+        <!-- <p class="card-country"><%= listing.country %></p> -->
+      </div>
+
+      <div class="actions">
+     
+        <a href="/listings/<%= listing._id %>" class="btn-show">Show</a>
+
+      
+
+      </div>
+    </div>
+
+   
+
+  <% } %>
+</div>
+
+ 

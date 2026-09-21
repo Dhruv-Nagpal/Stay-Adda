@@ -1,0 +1,107 @@
+<% layout("layouts/boilerplate") %>
+  <div class="newpara">
+    <h1>Add a new listing</h1>
+    <p>Fill in the details below to publish your property on StayAdda</p>
+  </div>
+  <div class="formcard">
+    <form class="form-container needs-validation" action="/listings" method="post" novalidate enctype="multipart/form-data">
+      <div class="formcontrol">
+        <label for="title">Title : </label>
+        <input id="title" name="listing[title]" type="text" placeholder="e.g. Cosy apartment near Connaught Place"
+          class="form-control" required>
+
+        <div class="valid-feedback">
+          Looks good! ✅
+        </div>
+
+        <div class="invalid-feedback">
+          Please enter title ❌
+        </div>
+      </div>
+
+      <div class="formcontrol">
+        <label for="description">Description: </label>
+        <textarea cols="10" rows="5" name="listing[description]" id="description"
+          placeholder="Describe what makes your place special..." class="form-control" required></textarea>
+
+        <div class="valid-feedback">Nice description 👍</div>
+        <div class="invalid-feedback">Description daal bhai ❌</div>
+      </div>
+
+      <div class="formcontrol">
+        <label for="image">Upload Image</label>
+        <input id="image" type="file" name="image"
+          class="form-control">
+      </div>
+
+      <hr class="form-divider">
+      <span class="section-label">Pricing &amp; Location</span>
+
+      <div class="formcontrol">
+        <label for="price">Price per night</label>
+        <div class="price-wrap">
+          <span class="price-symbol">₹</span>
+          <input type="number" id="price" name="listing[price]" placeholder="0" required class="form-control">
+
+
+           <div class="valid-feedback">
+          Price looks good 💰
+        </div>
+
+        <div class="invalid-feedback">
+          Please enter a valid price (greater than 0) ❌
+        </div>
+
+        </div>
+       
+      </div>
+
+      <div class="formcontrol">
+        <label for="location">Enter Location:</label>
+        <input id="location" type="text" name="listing[location]" required class="form-control">
+
+        <div class="valid-feedback">Location set ✅</div>
+        <div class="invalid-feedback">Location required hai ❌</div>
+      </div>
+
+      <div class="formcontrol">
+        <label for="country">Enter Country:</label>
+        <input id="country" type="text" name="listing[country]" required class="form-control">
+
+        <div class="valid-feedback">Country added 🌍</div>
+        <div class="invalid-feedback">Country likh bhai ❌</div>
+      </div>
+
+       <!-- CATEGORY ADDED -->
+    <div class="formcontrol">
+      <label for="category">Select Category:</label>
+
+      <select id="category"
+        name="listing[category]"
+        class="form-control"
+        required>
+
+        <option value="">Select a category</option>
+        <option value="Beach">Beach</option>
+        <option value="Mountain">Mountain</option>
+        <option value="City">City</option>
+        <option value="Luxury">Luxury</option>
+        <option value="Countryside">Countryside</option>
+
+      </select>
+
+      <div class="valid-feedback">
+        Category selected ✅
+      </div>
+
+      <div class="invalid-feedback">
+        Please select a category ❌
+      </div>
+    </div>
+
+      <div class="form-actions">
+        <a href="/listings" class="btn-cancel">Cancel</a>
+        <button type="submit" class="btn-create">+ Create Listing</button>
+      </div>
+    </form>
+  </div>

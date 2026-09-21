@@ -1,0 +1,61 @@
+<% layout("layouts/boilerplate") %>
+  <div class="signuppara">
+   <h1>SignUp Page</h1>
+  </div>
+  <div class="signupform">
+  <div class="formcard">
+    <form class="form-container  needs-validation" action="/signup" method="post" novalidate>
+      <div class="formcontrol">
+        <label for="username">UserName : </label>
+        <input id="username" name="username" type="text" placeholder="Enter your Name"
+          class="form-control" required>
+
+        <div class="valid-feedback">
+          Looks good! 
+        </div>
+
+        <div class="invalid-feedback">
+          Please enter your Name!
+        </div>
+      </div>
+
+     <div class="formcontrol">
+        <label for="email">Email : </label>
+        <input id="email" name="email" type="email" placeholder="Enter your Email"
+          class="form-control" required>
+
+        <div class="valid-feedback">
+          Looks good! 
+        </div>
+
+        <div class="invalid-feedback">
+          Please enter your Email!
+        </div>
+      </div>
+      
+
+     
+      <div class="formcontrol">
+        <label for="password">Password : </label>
+        <input id="password" name="password" type="password" placeholder="Enter your Password"
+          class="form-control" required>
+
+          <div class="invalid-feedback">
+             Please enter your Password! </div>
+      </div>
+      
+
+      <button class="btn btn-success mt-3">Sign Up</button>
+       
+
+      
+
+       
+
+     
+
+     
+
+    </form>
+  </div>
+  </div>

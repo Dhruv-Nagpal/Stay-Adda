@@ -1,0 +1,40 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="review-edit container mt-4">
+  <h3>Edit Your Review</h3>
+
+  <form action="/listings/<%= id %>/reviews/<%= review._id %>?_method=PATCH" method="POST">
+
+    <!-- Rating -->
+    <div class="mb-3">
+      <label for="rating" class="form-label">Rating</label>
+      <input
+        type="number"
+        name="review[rating]"
+        id="rating"
+        class="form-control"
+        min="1"
+        max="5"
+        value="<%= review.rating %>"
+        required
+      >
+    </div>
+
+    <!-- Comment -->
+    <div class="mb-3">
+      <label for="comment" class="form-label">Comment</label>
+      <textarea
+        name="review[comment]"
+        id="comment"
+        class="form-control"
+        rows="4"
+        required
+      ><%= review.comment %></textarea>
+    </div>
+
+    <!-- Buttons -->
+    <button class="btn btn-success">Update Review</button>
+    <a href="/listings/<%= id %>" class="btn btn-secondary">Cancel</a>
+
+  </form>
+</div>

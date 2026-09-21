@@ -1,0 +1,91 @@
+<% layout("layouts/boilerplate") %>
+    <div class="editpara">
+        <h1>Edit Your Listing!!</h1>
+        <p>Fill in the details below to edit your property on StayAdda</p>
+    </div>
+
+
+    <div class="formcard">
+        <form class="form-container needs-validation" action="/listings/<%= listing._id%>?_method=PUT" method="post" enctype="multipart/form-data"
+            novalidate>
+            <div class="formcontrol">
+                <label for="title">Title : </label>
+                <input class="form-control" id="title" name="listing[title]" type="text" required
+                    value="<%= listing.title %>">
+
+                <div class="valid-feedback">
+                    Looks good! ✅
+                </div>
+
+                <div class="invalid-feedback">
+                    Please enter title ❌
+                </div>
+            </div>
+
+            <div class="formcontrol">
+                <label for="description">Description: </label>
+                <textarea class="form-control" cols="10" rows="5" name="listing[description]" id="description"
+                    required><%= listing.description %></textarea>
+
+                <div class="valid-feedback">Nice description 👍</div>
+                <div class="invalid-feedback">Description daal bhai ❌</div>
+            </div>
+
+            <div class="formcontrol">
+                <p>Current Image:</p>
+                 <img src="<%= originalImageUrl %>" alt="">
+            </div>
+
+            <div class="formcontrol">
+                <label for="image">Upload Image:</label>
+                <input class="form-control" id="image" type="file" name="image" 
+                    >
+
+                <div class="valid-feedback">Valid Image👍</div>
+                <div class="invalid-feedback">Image daal bhai ❌</div>
+            </div>
+
+            <hr class="form-divider">
+            <span class="section-label">Pricing &amp; Location</span>
+
+            <div class="formcontrol">
+                <label for="price">Price per night</label>
+                <div class="price-wrap">
+                    <span class="price-symbol">₹</span>
+                    <input class="form-control" type="number" id="price" name="listing[price]" required
+                        value="<%= listing.price %>">
+
+                    <div class="valid-feedback">
+                        Price looks good 💰
+                    </div>
+
+                    <div class="invalid-feedback">
+                        Please enter a valid price (greater than 0) ❌
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="formcontrol">
+                <label for="location">Enter Location:</label>
+                <input class="form-control" id="location" type="text" name="listing[location]" required
+                    value="<%= listing.location %>">
+
+                <div class="valid-feedback">Location set ✅</div>
+                <div class="invalid-feedback">Location required hai ❌</div>
+            </div>
+
+            <div class="formcontrol">
+                <label for="country">Enter Country:</label>
+                <input class="form-control" id="country" type="text" name="listing[country]" required
+                    value="<%= listing.country %>">
+
+                <div class="valid-feedback">Country added 🌍</div>
+                <div class="invalid-feedback">Country likh bhai ❌</div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-edit">Edit Listing</button>
+            </div>
+
+    </div>
